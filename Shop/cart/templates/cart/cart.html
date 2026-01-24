@@ -1,0 +1,4 @@
+<h1>Корзина</h1>
+{% for item in cart.items.all %}
+    <p>{{ item.product.name }} — {{ item.quantity }} шт.</p>
+{% endfor %}
