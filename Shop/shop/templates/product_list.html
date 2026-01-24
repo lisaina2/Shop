@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Каталог товаров</h1>
+    
+    <!-- Форма поиска -->
+    <form method="GET">
+        <input type="text" name="q" placeholder="Поиск по названию" value="{{ request.GET.q }}">
+        <button type="submit">Искать</button>
+    </form>
+    
+    <!-- Список товаров -->
+    {% for product in products %}
+        <div class="product-item">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <p>Цена: {{ product.price }} руб.</p>
+        </div>
+    {% endfor %}
+    
+    <!-- Пагинация -->
+    {% if is_paginated %}
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+            {% endif %}
+            
+            {% for page in page_obj.paginator.page_range %}
+                <a href="?page={{ page }}">{{ page }}</a>
+            {% endfor %}
+            
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}

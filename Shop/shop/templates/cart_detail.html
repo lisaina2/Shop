@@ -1,0 +1,15 @@
+<!-- cart.html -->
+<div class="cart">
+    <h2>Корзина</h2>
+    <ul>
+        {% for item in cart.items.values %}
+            <li>
+                {{ item.quantity }} × {{ item.price }} ₽
+                <a href="{% url 'remove_from_cart' item.id %}">Удалить</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="total">
+        Итого: {{ cart.total_price }} ₽
+    </div>
+</div>

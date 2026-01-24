@@ -1,0 +1,7 @@
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p>Товары в корзине: (вывести информацию о товарах)</p>
+    <p>Итого: {{ cart.get_total_price }}</p>
+    <button type="submit">Оформить заказ</button>
+</form>
