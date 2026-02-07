@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Заказ {{ order.id }}</h2>
+<p>Товар: {{ order.product.name }}</p>
+<p>Количество: {{ order.quantity }}</p>
+<p>Цена за единицу: {{ order.price }}</p>
+<p>Общая сумма: {{ order.total_amount }}</p>
+<p>Дата создания: {{ order.created_at }}</p>
+<p>Статус: {{ order.status }}</p>
+<p>Способ оплаты: {{ order.payment_method }}</p>
+{% endblock %}
