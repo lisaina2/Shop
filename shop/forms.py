@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -56,13 +55,4 @@ class OrderForm(forms.Form):
         required=False,
         label='Комментарий'
     )
-=======
-# forms.py: Определяет формы для пользовательского ввода.
-from django import forms # Импорт модуля для работы с формами Django.
-class CheckoutForm(forms.Form):
-    name = forms.CharField(max_length=200) # Поле имени.
-    email = forms.EmailField() # Поле email.
-    phone = forms.CharField(max_length=20) # Поле для телефона.
-    address = forms.CharField(widget=forms.Textarea) # Поле адреса (текстовое поле).
-    comment = forms.CharField(widget=forms.Textarea, required=False) # Поле для комментария.
->>>>>>> 6c6f88521e4ca81380e7054966a26293059fff48
+
