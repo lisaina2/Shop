@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мой сайт</title>
+</head>
+<body>
+    <header>
+        {% block navigation %}{% endblock %}  <!-- Здесь будет подставляться навигация -->
+        <nav>
+            {% if user.is_authenticated %}
+                <p>Добро пожаловать, {{ user.username }}!</p>
+                <a href="{% url 'logout' %}">Выйти</a>
+            {% else %}
+                <button onclick="window.location.href='{% url 'login' %}'">
+                    Вход
+                </button>
+                <button onclick="window.location.href='{% url 'register' %}'">
+                    Регистрация
+                </button>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

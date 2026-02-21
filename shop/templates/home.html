@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block navigation %}
+<ul class="main-menu">
+    {% for item in main_menu %}
+        <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+    {% endfor %}
+    <!-- Добавляем кнопки -->
+    <li><a href="/login/" class="btn btn-primary">Вход</a></li>
+    <li><a href="/register/" class="btn btn-success">Регистрация</a></li>
+
+</ul>
+{% endblock %}
+
+{% block content %}
+    <h1>Добро пожаловать в наш магазин!</h1>
+    <p>Здесь будет контент главной страницы.</p>
+{% endblock %}
