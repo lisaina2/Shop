@@ -1,0 +1,38 @@
+# Виртуальное окружение
+venv/
+env/
+
+# Файлы Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# База данных (если используется SQLite)
+*.sqlite3
+
+# Статические файлы (если собираются через collectstatic)
+staticfiles/
+
+# Медиа-файлы (изображения, видео и т.п.)
+media/
+
+# Лог-файлы
+*.log
+
+# Конфигурационные файлы с секретами
+.env
+secrets.json
+
+# IDE и системы сборки
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# macOS-специфичные
+.DS_Store
+
+# Windows-специфичные
+Thumbs.db

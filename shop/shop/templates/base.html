@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Мой магазин{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
+    </head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <nav>
+            <!-- Меню (будет заполнено в блоке ниже) -->
+            {% block navigation %}{% endblock %}
+        </nav>
+
+        <!-- Корзина (наш элемент, который будет на всех страницах) -->
+        <div class="cart-icon">
+            <a href="{% url 'cart:detail' %}">
+                🛒
+                <span class="cart-count">{{ cart_items_count }}</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Основной контент страницы -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        {% block footer %}
+            &copy; 2026 Мой магазин
+        {% endblock %}
+    </footer>
+
+    <!-- Flash-сообщения -->
+    {% include 'includes/flash_messages.html' %}
+
+    <!-- Подключите JS (если нужно) -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

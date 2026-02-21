@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Моя форма</title>
+</head>
+<body>
+
+    <h1>Заполните форму:</h1>
+
+    {# Вывод сообщений Django Messages #}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+
+    <!-- Отображение ошибок формы -->
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <p>Пожалуйста, исправьте ошибки:</p>
+            {{ form.errors }}
+        </div>
+    {% endif %}
+
+    <!-- Отображение общих ошибок формы -->
+    {% if form.non_field_errors %}
+        <div class="error">
+            {% for error in form.non_field_errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+</body>
+</html>
+{% endblock %}
