@@ -19,7 +19,7 @@ class RegisterView(FormView):
         return super().form_valid(form)
 
 def register(request):
-    form = RegistrationForm()
+    form = RegisterForm()
     return render(request, 'register.html', {'form': form})
 
 # Функция для отображения списка продуктов.
