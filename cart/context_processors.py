@@ -60,7 +60,7 @@ def cart_processor(request):
             cart = Cart.objects.filter(id=cart_id, status='active').first()
 
     if cart:
-        cart_items_count = cart.get_total_items()  # метод в модели Cart
+        cart_items_count = len(cart.items.all())  # метод в модели Cart
 
     return {
         'cart': cart,
