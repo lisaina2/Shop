@@ -51,6 +51,13 @@ class Cart(models.Model):
         default=0.00,
         help_text='Сумма всех товаров в корзине'
     )
+        # Связь "многие ко многим" с товарами (добавляем новое поле)
+    items = models.ManyToManyField(
+        'shop.Product',  # Замените 'Item' на название вашей модели товара, если оно другое
+        blank=True,  # Разрешает пустую корзину (без товаров)
+        related_name='carts',  # Позволяет обращаться к корзинам из модели Item
+        verbose_name='Товары в корзине'
+    )
 
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
